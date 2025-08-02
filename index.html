@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>test App2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./extras/jquery.min.1.7.js"></script>
+    <script src="./extras/modernizr.2.5.3.min.js"></script>
+</head>
+
+<body>
+    <div id="welcome-screen" class="screen">
+        <div class="welcome-content">
+             <img src="page/first_shoes.jpg" alt="ウェルカム画像" class="welcome-image">
+            <h1>次の項目0〜7までお答えください</h1>
+            <div id="inputContainer">
+                 <div class="input-item">
+                    <p class="input-label">項目0:OPENAIのAPIkey</p>
+                    <textarea id="apikey" class="inputText" placeholder="ここに入力..." maxlength="2000"></textarea>
+                </div>
+                <div class="input-item">
+                    <p class="input-label">項目1:製品のカテゴリー</p>
+                    <textarea id="Itemname" class="inputText" placeholder="ここに入力..." maxlength="20"></textarea>
+                </div>
+                <div class="input-item">
+                    <p class="input-label">項目2:お子様のあだ名</p>
+                    <textarea id="nickname" class="inputText" placeholder="ここに入力..." maxlength="20"></textarea>
+                </div>
+                <div class="input-item">
+                    <p class="input-label">項目3:性別</p>
+                        <select id="genderSelect" class="input-select">
+                        <option value="">選択してください</option>
+                        <option value="男性">男性</option>
+                        <option value="女性">女性</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </div>
+                <div class="input-item">
+                    <p class="input-label">項目4：年齢</p>
+                    <select id="ageSelect" class="input-select">
+                    <option value="">選択してください</option>
+                    <option value="0">0歳</option>
+                    <option value="1">1歳</option>
+                    <option value="2">2歳</option>
+                    <option value="3">3歳</option>
+                    <option value="4">4歳</option>
+                    <option value="5">5歳</option>
+                    <option value="6">6歳</option>
+                    <option value="7">7歳</option>
+                    <option value="8">8歳</option>
+                    <option value="9">9歳</option>
+                    </select>
+                </div>
+                 <div class="input-item">
+                    <p class="input-label">項目5：使った頻度</p>
+                    <select id="frequencySelect" class="input-select">
+                    <option value="">選択してください</option>
+                    <option value="毎日">毎日</option>
+                    <option value="頻繁">2-3日に1回</option>
+                    <option value="時々">1週間に1回</option>
+                    <option value="稀に">1ヶ月に1回</option>
+                    <option value="1年に1回">1年に1回</option>
+                    <option value="わからない">その他</option>
+                    </select>
+                </div>
+                <div class="input-item">
+                    <p class="input-label">項目6:どのような出逢い方をしましたか？</p>
+                    <textarea id="encount-text" class="inputText" placeholder="ここに入力..." maxlength="20"></textarea>
+                </div>
+                <div class="input-item">
+                    <p class="input-label">項目7:自由記入</p>
+                    <textarea id="rel-text" class="inputText" placeholder="ここに入力..." maxlength="500"></textarea>
+                </div>
+            </div>
+            <button id="startButton">決定</button>
+        </div>
+    </div>
+
+    <div id="loading-screen" class="screen hidden">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>絵本を生成中...</p>
+        </div>
+    </div>
+    
+    <div id="flipbook-screen" class="screen hidden">
+        <div id="flipbook">
+            </div>
+    </div>
+
+    <script src="./lib/turn.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

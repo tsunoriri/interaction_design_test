@@ -1,0 +1,212 @@
+/* 全体のリセットと基本スタイル */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 初期画面のスタイル */
+#welcome-screen {
+    flex-direction: column;
+}
+
+.welcome-content {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    height: 80vh; 
+    overflow-y: auto; 
+}
+
+/* 追加されたウェルカム画像のスタイル */
+.welcome-image {
+    max-width: 80%; /* 画面幅に合わせて画像のサイズを調整 */
+    max-height: 50vh; /* ビューポートの高さの50%に制限 */
+    object-fit: contain; /* アスペクト比を保ったまま全体を表示 */
+    margin-bottom: 20px; /* 下にスペースを追加 */
+}
+
+#inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 入力項目間のスペース */
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* コンテナの最大高さを設定し、コンテンツがはみ出したらスクロール可能にする */
+    max-height: 300px;
+    overflow-y: auto; 
+}
+
+#inputText {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+    height: 100px; 
+}
+#rel-text {
+    font-size: 16px;
+    width: 90%; /* 幅を親要素の90%に設定 */
+    height: 150px; /* 高さを150pxに設定 */
+}
+#nickname {
+    font-size: 16px;
+    width: 50%; /* 幅を親要素の90%に設定 */
+    height: 20px; /* 高さを150pxに設定 */
+}
+#Itemname {
+    font-size: 16px;
+    width: 50%; /* 幅を親要素の90%に設定 */
+    height: 20px; /* 高さを150pxに設定 */
+}
+#encount-text{
+    font-size: 16px;
+    width: 90%; /* 幅を親要素の90%に設定 */
+    height: 150px; /* 高さを150pxに設定 */ 
+}
+/* 追加：セレクトボックスのスタイル */
+.input-select {
+    width: 40%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+#startButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#startButton:hover {
+    background-color: #0056b3;
+}
+/* 生成中画面のスタイル */
+#loading-screen {
+    background-color: rgba(255, 255, 255, 0.9); /* 少し透明な白背景 */
+    flex-direction: column;
+    z-index: 100; /* 最前面に表示 */
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.spinner {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite; /* 回転アニメーション */
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading-screen p {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* flipbookのスタイル */
+#flipbook-screen {
+    background-color: #ffffff;
+}
+
+#flipbook {
+    width: 100%;
+    height: 100%;
+}
+
+.turn-page {
+    background-color: #ffffff; /* 背景色を白に変更 */
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 0px; /* パディングを調整 */
+    display: flex;
+    flex-direction: column; /* 縦方向に要素を並べる */
+    justify-content: center; /* 縦方向の中央寄せ */
+    align-items: center; /* 横方向の中央寄せ */
+    position: relative; /* 子要素の配置のため */
+}
+
+/* 画像のスタイル */
+.turn-page img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* 余白をなくす */
+}
+
+/* 入力した文字のスタイル */
+.turn-page .user-text {
+    position: absolute; /* 親要素の.turn-pageに対して絶対配置 */
+    bottom: 20px; /* ページ下部から20pxの位置 */
+    left: 50%; /* 左から50%の位置 */
+    transform: translateX(-50%); /* X軸方向に-50%移動して中央寄せ */
+    width: 85%; /* 幅を80%に設定（左右に10%ずつの余白） */
+    max-height: 30vh; /* 最大高さを画面の高さの50%に制限 */
+    overflow-y: auto; /* テキストが収まらない場合にスクロール可能にする */
+    margin: 0;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.7); /* 背景を少し透明に */
+    border-radius: 5px;
+    font-size: clamp(16px, 3vw, 24px);
+    color: #333;
+}
+
+.page-size {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 10;
+}
