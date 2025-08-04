@@ -164,7 +164,7 @@ $(document).ready(function() {
         - 出力はJSON形式であること。JSONのルート要素は"pages"というキーを持つ配列で、各配列要素は以下のキーを持つオブジェクトとすること。
             - **"page_number"**: 物語のページ番号 (1から始まる整数)。
             - **"page_text"**: そのページの物語のテキスト (500文字以下)。
-            - **"illustration_description"**: そのページに描かれる挿絵の具体的な内容を示す英語の短い説明 (例: "A unicorn standing in a magical forest")。この説明は、将来的に画像生成AIへの指示として使われます。
+            - **"illustration_description"**: そのページに描かれる挿絵の具体的な内容を示す英語の短い説明 (例: "A unicorn standing in a magical forest")。この説明は、将来的に画像生成AIへの指示として使われます。また登場するキャラクターの特徴を同一のワードで含めること。
         - 物語は合計で${totalpages}ページであること。
         - 各ページの物語の文字数は100文字以下とすること。
         - 各ページには、物語のテキストと、そのページに合う挿絵を描くための簡単な説明を含めること。
@@ -189,17 +189,17 @@ $(document).ready(function() {
             {
             "page_number": 1,
             "page_text": "むかしむかし、きらめく星の谷に、${mainCharacter}という${characterAge}の${characterGender}が住んでいました。ある日、${itemName}と名付けられた不思議な輝きを持つものが、${encounterStory}。",
-            "illustration_description": "星の谷で輝く${itemName}を見つめる${mainCharacter}"
+            "illustration_description": "${mainCharacter}は黒髪の男の子。星の谷で輝く${itemName}を見つめる${mainCharacter}"
             },
             {
             "page_number": 2,
             "page_text": "その${itemName}は、触れると温かい光を放ち、${mainCharacter}を未知の世界へと導きました。彼は${frequency}、${itemName}と共に空を飛び、森を駆け巡り、たくさんの魔法を学びました。",
-            "illustration_description": "光る${itemName}を手に、空を飛ぶ${mainCharacter}"
+            "illustration_description": "${mainCharacter}は黒髪の男の子。光る${itemName}を手に、空を飛ぶ${mainCharacter}"
             },
             {
             "page_number": 3,
             "page_text": "新しい友と出会い、数々の困難を乗り越え、${mainCharacter}は大きく成長しました。${itemName}との間には、${freeFormText}という特別な絆が生まれ、二人はこれからもたくさんの素敵な物語を紡いでいくでしょう。",
-            "illustration_description": "成長した${mainCharacter}が、${itemName}と共に夕日を眺めている"
+            "illustration_description": "${mainCharacter}は黒髪の男の子。成長した${mainCharacter}が、${itemName}と共に夕日を眺めている"
             }
         ]
         }
